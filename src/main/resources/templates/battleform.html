@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="template :: dochead">
+</head>
+<body>
+
+<div th:replace="template :: navigation"></div>
+<h3>The Gladiators in the</h3>
+<h1>Training Hall</h1>
+
+<div th:each="vitals : ${inputs}">
+
+	<h2><a th:href="'/trainers/' + ${vitals.player.username} + '/' + ${vitals.uid}" th:text="${vitals.name}"></a></h2>
+	<p th:text="${vitals.background}"></p>
+	<p class="post-author">trained by <a th:href="'/trainers/' + ${vitals.player.username}" th:text="${vitals.player.username}"></a></p>
+
+</div>
+
+</body>
+</html>

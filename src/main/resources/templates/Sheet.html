@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="template :: dochead">
+</head>
+<body>
+
+	<div th:replace="template :: navigation"></div>
+	<h1>Gladiator's dossier!</h1>
+	
+	<div th:each = "vitals : ${inputs} ">
+	<h2 th:text="${vitals.name}"></h2>
+	<p>by <a th:href="'/trainers/' + ${vitals.player.username}" th:text="${vitals.player.username}"></a></p>
+	<p>created <span th:text="${#dates.format(vitals.created, 'yyyy-MM-dd')}"></span></p>
+	
+	<p th:text="${vitals.gender}"></p>
+	<h4>Stats</h4>
+	<p th:text="${vitals.strength}"> Strength</p>
+	<p th:text="${vitals.quickness}"> Quickness</p>
+	<p th:text="${vitals.hardiness}"> Hardiness</p>
+	
+	<h4>Items</h4>
+	<!--  this may only display the number values of each weapon -->
+	<p th:text="${vitals.weapon}"></p>
+	<p th:text="${vitals.armor}"></p>
+	
+	<p th:text="${vitals.background}">text</p>
+	</div>
+
+	<!--  display a character sheet -->
+
+</body>
+</html>

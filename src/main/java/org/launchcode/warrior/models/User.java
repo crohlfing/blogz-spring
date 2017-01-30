@@ -1,4 +1,4 @@
-package org.launchcode.blogz.models;
+package org.launchcode.warrior.models;
 
 import java.util.List;
 import java.util.regex.Matcher;
@@ -21,7 +21,7 @@ public class User extends AbstractEntity {
 	private String pwHash;
 	private static final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 	
-	private List<Post> posts;
+	private List<Character> inputs;
 	
 	public User() {}
 	
@@ -80,18 +80,18 @@ public class User extends AbstractEntity {
 		return matcher.matches();
 	}
 	
-	protected void addPost(Post post) {
-		posts.add(post);
+	protected void addCharacter(Character vitals) {
+		inputs.add(vitals);
 	}
 	
 	@OneToMany
     @JoinColumn(name = "author_uid")
-    public List<Post> getPosts() {
-        return posts;
+    public List<Character> getInputs() {
+        return inputs;
     }
 	
-	public void setPosts(List<Post> posts) {
-		this.posts = posts;
+	public void setInputs(List<Character> inputs) {
+		this.inputs = inputs;
 	}
 	
 }

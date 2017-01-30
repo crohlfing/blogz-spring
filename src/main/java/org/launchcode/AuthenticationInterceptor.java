@@ -7,9 +7,9 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.launchcode.blogz.controllers.AbstractController;
-import org.launchcode.blogz.models.User;
-import org.launchcode.blogz.models.dao.UserDao;
+import org.launchcode.warrior.controllers.AbstractController;
+import org.launchcode.warrior.dao.UserDao;
+import org.launchcode.warrior.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
@@ -21,7 +21,7 @@ public class AuthenticationInterceptor extends HandlerInterceptorAdapter {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws IOException {
 
-        List<String> authPages = Arrays.asList("/blog/newpost");
+        List<String> authPages = Arrays.asList("/trainers/creator");
 
         // Require sign-in for auth pages
         if ( authPages.contains(request.getRequestURI()) ) {

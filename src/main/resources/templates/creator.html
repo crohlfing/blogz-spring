@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="template :: dochead">
+</head>
+<body>
+
+	<div th:replace="template :: navigation"></div>
+	<h1>Create your Gladiator!</h1>
+	
+	<form method="post">
+	    <label>
+	        <div>Name</div>
+	        <input type="text" name="name" th:value="${name}"></input>
+	    </label>
+	    
+	 	<div>Gender</div>
+	    <label>Male
+	    	<input type="radio" name="gender" value="male"></input>
+	    </label>
+	    <label>Female
+	    	<input type="radio" name="gender" value="female"></input>
+	    </label>
+	    
+	    <p>Select Stats that add up to 20</p>
+	    <label>
+	    	<div>Strength</div>
+	    	<input type="text" name="strength" value="${strength}"></input>
+	    </label>
+	    <label>
+	    	<div>Quickness</div>
+	    	<input type="text" name="quickness" value="${quickness}"></input>
+	    </label>
+	    <label>
+	    	<div>Hardiness</div>
+	    	<input type="text" name="hardiness" value="${hardiness}"></input>
+	    </label>
+	    
+	    <h4>pick a weapon</h4>
+	    
+			<input type="radio" name="weapon" value="1"> Dagger</input><br></br>
+			<input type="radio" name="weapon" value="2"> ShortSword</input><br></br>
+			<input type="radio" name="weapon" value="3"> LongSword</input><br></br>		
+			
+		<h4>pick armor</h4>
+			<input type="radio" name="armor" value="0"> None</input><br></br>
+			<input type="radio" name="armor" value="1"> Leather Armor</input><br></br>
+			<input type="radio" name="armor" value="2"> Chain Mail</input><br></br>
+			<input type="radio" name="armor" value="3"> Plate Mail</input><br></br>		
+	
+	   
+	    <label>
+	        <div>Background</div>
+	        <textarea name="background" th:text="${background}"></textarea>
+	    </label>
+	    <div class="error" th:text="${error}"></div>
+	    <button type="submit">Create</button>
+	</form>
+
+</body>
+</html>

@@ -1,10 +1,10 @@
-package org.launchcode.blogz.controllers;
+package org.launchcode.warrior.controllers;
 
 import javax.servlet.http.HttpSession;
 
-import org.launchcode.blogz.models.User;
-import org.launchcode.blogz.models.dao.PostDao;
-import org.launchcode.blogz.models.dao.UserDao;
+import org.launchcode.warrior.dao.PostDao;
+import org.launchcode.warrior.dao.UserDao;
+import org.launchcode.warrior.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public abstract class AbstractController {

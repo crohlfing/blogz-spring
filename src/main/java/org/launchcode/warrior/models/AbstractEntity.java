@@ -1,4 +1,4 @@
-package org.launchcode.blogz.models;
+package org.launchcode.warrior.models;
 
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
