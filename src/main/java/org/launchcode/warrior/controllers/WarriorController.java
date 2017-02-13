@@ -16,11 +16,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class WarriorController extends AbstractController {
 
+	
+	
+	//This method takes you to the character creator template
 	@RequestMapping(value = "/trainers/creator", method = RequestMethod.GET)
 	public String newCharForm() {
 		return "creator";
 	}
 	
+	//This method validates the data you submit to the template
+	//if it's squeaky clean, it creates the object and saves the data 
 	@RequestMapping(value = "/trainers/creator", method = RequestMethod.POST)
 	public String newChar(HttpServletRequest request, Model model) {
 		
@@ -60,6 +65,7 @@ public class WarriorController extends AbstractController {
 			model.addAttribute("error", error);
 			return "creator";
 		}
+
 		Character newChar = new Character(name, gender, strength, quickness, hardiness, weapon, armor, background, player);
 		
 		postDao.save(newChar);
@@ -71,10 +77,12 @@ public class WarriorController extends AbstractController {
 		
 	}
 	
+	
+	//This is the method to make a character sheet of a created character
 	@RequestMapping(value = "/trainers/{username}/{uid}", method = RequestMethod.GET)
 	public String makeSheet(@PathVariable String username, @PathVariable int uid, Model model) {
 		
-		List<Character> newSheet = postDao.findByUid(uid);
+		Character newSheet = postDao.findByUid(uid);
 		
 		model.addAttribute("inputs", newSheet);
 		
@@ -82,6 +90,7 @@ public class WarriorController extends AbstractController {
 		return "sheet";
 	}
 	
+	//This method directs user to a list of a single user's characters
 	@RequestMapping(value = "/trainers/{username}", method = RequestMethod.GET)
 	public String userInputs(@PathVariable String username, Model model) {
 		
@@ -90,7 +99,10 @@ public class WarriorController extends AbstractController {
 		
 		model.addAttribute("inputs", userInputs);
 		
-		return "trainers";
+		model.addAttribute("player", user.getUsername());
+		return "trainersroster";
 	}
+	
+
 	
 }
